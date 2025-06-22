@@ -1,0 +1,23 @@
+{
+  "name": "fake-contribs-230",
+  "version": "1.0.0",
+  "description": "",
+  "main": "make-heatmap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xmark05/fake-contribs-2300.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xmark05/fake-contribs-2300/issues"
+  },
+  "homepage": "https://github.com/xmark05/fake-contribs-2300#readme",
+  "dependencies": {
+    "canvas": "^3.1.1"
+  }
+}
