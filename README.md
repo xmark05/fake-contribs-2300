@@ -14,8 +14,9 @@ This repository generates fake GitHub contributions for a custom word mask in a 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/xmark05/fake-contribs-2023.git
-   cd fake-contribs-2023
+   git clone https://github.com/xmark05/fake-contribs-230.git
+   cd fake-contribs-2300
+
    ```
 
 2. **Install dependencies**
