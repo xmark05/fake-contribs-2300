@@ -18,12 +18,15 @@ const AUTHOR_NAME  = 'xmark05';
 const AUTHOR_EMAIL = 'xmark05@users.noreply.github.com';
 
 // Maske: 0 = Commit, 1 = Skip (Wort-Bereich)
+// === Maske bauen: 0 = Commit, 1 = Skip (Wort-Bereich) ===
 function buildMask(text, weeks) {
   const canvas = createCanvas(weeks, 7);
   const ctx    = canvas.getContext('2d');
-  ctx.fillStyle = '#000';           // schwarz = Commit
+  // Schwarzer Hintergrund
+  ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, weeks, 7);
-  ctx.fillStyle = '#fff';           // weiß = Skip (Wort)
+  // Weißer Text = Skip-Bereich
+  ctx.fillStyle = '#fff';
   ctx.font       = 'bold 7px sans-serif';
   ctx.fillText(text.toUpperCase(), 0, 6);
 
@@ -31,11 +34,14 @@ function buildMask(text, weeks) {
   const mask = Array.from({ length: 7 }, () => Array(weeks).fill(0));
   for (let y = 0; y < 7; y++) {
     for (let x = 0; x < weeks; x++) {
-      if (img[(y * weeks + x)*4 + 3] > 128) mask[y][x] = 1;
+      // statt Alpha prüfen wir hier den Rot-Kanal:
+      const red = img[(y * weeks + x) * 4 + 0];
+      mask[y][x] = red > 128 ? 1 : 0;  // weißer Text (red>128) → skip
     }
   }
   return mask;
 }
+
 
 (function main() {
   // 1) Repo init, falls nötig
